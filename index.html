@@ -29,7 +29,7 @@
 				//document.getElementById("divPP").innerHTML = "Paragraph changed!"+vPeriodValue;
 				//http://garystorey.com/2017/02/27/three-ways-to-create-dom-elements-without-jquery/
 				var eTable = document.createElement('tablePP');
-				var domString = '<table class="table table-hover" id="tablePP">';
+				var domString = '<table class="table table-bordered table-hover" id="tablePP">';
 				domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Infows</th><th scope="col">Outflows</th><th scope="col">Cummulative Cashflow</th></tr></thead>';
 				
 				domString = domString + '<tbody>';
@@ -52,6 +52,7 @@
 	<body class="p-3 mb-2 bg-light text-dark">
 	<div  class="mx-auto" style="width: 80%;">
 		<h1>Hello, world!</h1>
+		<input type="number" id="inflow" value="holas">
 		
 	<!-- METHOD BAR-->
 		<ul class="nav nav-pills red" id="pills-tab" role="tablist">
@@ -63,6 +64,12 @@
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Checklist</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Depreciation</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Project Screening Matrix</a>
 			</li>
 		</ul>
 	<!-- TABS -->
@@ -113,7 +120,7 @@
 					<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Tasa de Interes (%)</label>
 					<div class="col-sm-10">
 					<!-- INPUT de TASA DE INTERES -->
-					  <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="Número entre 0 - 100">
+					  <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="col-form-label-lg">
 					</div>
 				  </div>
 				  
@@ -132,6 +139,14 @@
 				</div>
 			</div>
 		<!-- 2. Method: NPV -->
+			<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+				<p> Breve description de PP </p>
+			</div>
+			
+			<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+				<p> Breve description de PP </p>
+			</div>
+			
 			<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
 				<p> Breve description de PP </p>
 			</div>
