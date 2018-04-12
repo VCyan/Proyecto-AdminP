@@ -1,0 +1,102 @@
+
+
+.navbar-pills {
+    background-color: red;
+    border-color: #030033;
+}
+
+.red .active a,
+.red .active a:hover {
+    background-color: red;
+}
+
+/* .encabezado{
+	font-family: "Franklin Gothic Medium", sans-serif; 
+	font-size:32px;
+	color: #A9F5F2;
+	background-color:#6A0888;
+	border-radius: 12px;
+	width: 90%;
+	padding: 10px;
+}
+
+h1{
+	font-family: "Franklin Gothic Medium", sans-serif; 
+	font-size:48px;
+	color: #FFFFFF;
+	background-color:#000000;
+	border-radius: 12px;
+	width: 95%;
+	padding: 10px;
+	text-align:center;
+}
+
+body
+{
+	font-family: Futura,"Trebuchet MS";
+	background-color:#66ffff;
+}
+table {
+	font-family: Futura,"Trebuchet MS",Arial,sans-serif;
+	border: 2px solid ;
+	font-size:28px;
+    border-collapse: collapse;
+	width: 90%;
+	background-color:white;
+}
+
+table.center {
+    margin-left:auto; 
+    margin-right:auto;
+}
+  
+td, th {
+    border: 1px solid red;
+	padding: 15px;
+}
+
+tr:nth-child(odd) {
+    background-color: #e6ccff;
+}
+
+tr:nth-child(even) {
+    background-color: #b3e6ff;
+}
+
+tr:hover {background-color: #ffe6e6}
+
+p{
+	font-family: Rockwell;
+	font-size:16pt;
+	color: white;
+	background-color:#0B0B3B;
+	border-radius: 12px;
+	width: 90%;
+	padding: 8px;
+}
+
+input {
+	font-family: Futura,"Trebuchet MS";
+	font-size: 20px;
+	border-radius:16px;
+	width: 230px;
+	height: 40px;
+	border-style: none;
+}
+
+.boton{
+	font-family: Futura,"Trebuchet MS";
+	font-size: 20px;
+	background:red;
+	color:white;
+	text-shadow: 1px 0px black;
+	border-radius:16px;
+	width: 230px;
+	height: 40px;
+}
+
+.boton:hover{
+	background:white;
+	color: #5858FA;
+	text-shadow: none;
+} */
