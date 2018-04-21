@@ -1,8 +1,10 @@
-	function generateTable() {
-		var vPeriod = document.getElementById("vPeriod");
-		var vPeriodValue = vPeriod.options[vPeriod.selectedIndex].value;
+	function generateTable(vPeriodValue) {
+		//alert(vPeriodN);
+		//alert(vPeriodValue);
+		//var vPeriod = document.getElementById("vPeriod");
+		//var vPeriodValue = vPeriod.options[vPeriod.selectedIndex].value;
 		
-		if(vPeriodValue == 0){
+		if(vPeriodValue == 0 || null){
 			var domString = '<table class="table table-bordered table-hover" id="tablePP">';
 			domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Infows</th><th scope="col">Outflows</th><th scope="col">Cummulative Cashflow</th></tr></thead>';
 			
@@ -35,6 +37,15 @@
 		var element = document.getElementById('vPeriod');
 		element.value = 3;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	function generate_TableNPV() {
 		var vPeriod = document.getElementById("vPeriod2");

@@ -63,7 +63,7 @@
 						<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Periodos</label>
 						<!-- INPUT de PERIODOS -->
 						<div class="col-sm-5">
-							<select class="custom-select" id="vPeriod"  onchange="generateTable()">
+							<select class="custom-select" id="vPeriod"  onchange="generateTable(this.value)">
 								<option value="0"> -- Select a number of Periods -- </option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -78,7 +78,7 @@
 							</select>
 						</div>
 						<div class="col-sm-5">
-							<input type="button" class="btn btn-primary btn-block" value="Calcular PP" onclick="setSelectValue(); generateTable();">
+							<input type="button" class="btn btn-primary btn-block" value="Calcular PP">
 						</div>
 					</div>
 					
