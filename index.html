@@ -78,7 +78,7 @@
 							</select>
 						</div>
 						<div class="col-sm-5">
-							<input type="button" class="btn btn-primary btn-block" value="Calcular PP">
+							<input type="button" class="btn btn-primary btn-block" value="Calcular PP" onclick="validateData();">
 						</div>
 					</div>
 					
@@ -95,7 +95,7 @@
 							</div>
 						</div>
 						<div class="col-sm-5">
-							<input type="reset" class="btn btn-primary btn-block" value="Limpiar Datos" onclick="generateTable()">
+							<input type="reset" class="btn btn-primary btn-block" value="Limpiar Datos" onclick="generateTable();">
 						</div>
 					</div>
 				  
@@ -108,6 +108,9 @@
 				  </div>
 				  
 				</form>
+				<div id="errorPP">
+				
+				</div>
 				<div id="divPP">
 				<!-- Aqui se entrega a tablePP -->
 					<table class="table">

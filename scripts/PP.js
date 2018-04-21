@@ -21,9 +21,9 @@
 			for(i=1; i <= vPeriodValue; i++)
 			{
 				domString = domString + '<tr><th scope="row">'+ i +'</th>';
-					domString = domString + '<td><input type="number" class="form-control" id="inflowPP'+i+'"></td>';
-					domString = domString + '<td><input type="number" class="form-control" id="outflowPP'+i+'"></td>';
-					domString = domString + '<td><input class="form-control" id="cummCfPP'+i+'" type="text" placeholder="Disabled input here..." disabled></td>';
+					domString = domString + '<td><input type="number" class="form-control" id="inflowPP'+i+'" name="inflowPP'+i+'"></td>';
+					domString = domString + '<td><input type="number" class="form-control" id="outflowPP'+i+'" name="outflowPP'+i+'"></td>';
+					domString = domString + '<td><input type="text"   class="form-control" id="cummuCfPP'+i+'" name="cummCfPP'+i+'"placeholder="Disabled input here..." disabled></td>';
 				domString = domString + '</tr>';
 			}
 		}
@@ -33,9 +33,18 @@
 		document.getElementById("divPP").innerHTML = domString;
 	}
 	
-	function setSelectValue() {
-		var element = document.getElementById('vPeriod');
-		element.value = 3;
+	function validateData() {
+		var vPeriod = document.getElementById("vPeriod").value;
+		var vPrincipal = document.getElementById("vPeriod").value;
+		var vTasa = document.getElementById("vPeriod").value;
+		//var vPeriodValue = vPeriod.options[vPeriod.selectedIndex].value;
+		alert("vPeriod " + vPeriod);
+		
+		var domString = '<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Error: ';
+		
+		
+		
+		domString = domString + '</label>';
 	}
 	
 	
