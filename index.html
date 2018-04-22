@@ -91,7 +91,7 @@
 									<span class="input-group-text">$</span>
 								</div>
 								<!-- INPUT de PRINCIPAL -->
-								<input type="text" class="form-control form-control-lg" aria-label="Amount (to the nearest dollar)">
+								<input type="number" min="1" class="form-control form-control-lg" id="vPrincipal"  aria-label="Amount (to the nearest dollar)">
 							</div>
 						</div>
 						<div class="col-sm-5">
@@ -103,13 +103,13 @@
 					<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Tasa de Interes (%)</label>
 					<div class="col-sm-4">
 					<!-- INPUT de TASA DE INTERES -->
-					  <input type="text" class="form-control form-control-lg" id="colFormLabelLg" placeholder="0 - 100">
+					  <input type="number" min="0" max="100" class="form-control form-control-lg" id="vTasa" placeholder="0 - 100">
 					</div>
 				  </div>
 				  
 				</form>
+				<!-- Aqui se entrega a errorPP -->
 				<div id="errorPP">
-				
 				</div>
 				<div id="divPP">
 				<!-- Aqui se entrega a tablePP -->
