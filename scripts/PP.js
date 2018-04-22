@@ -75,7 +75,8 @@
 			  try {
 				 ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
 			  }catch (e) {
-				 try{
+				 // code for IE6, IE5
+				 try{				
 					ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
 				 }catch (e){
 					// Something went wrong
@@ -98,6 +99,7 @@
 			// Now get the value from user and pass it to
 			// server script.
 			
+			// http://www.kvcodes.com/2015/10/passing-javascript-array-to-php-through-jquery-ajax
 			// Get values from Inflows & Outflows into JQuery Arrays encoded as JSON:
 			var inflowsPP  = [];
 			var outflowsPP = [];
@@ -108,8 +110,8 @@
 				outflowsPP.push(getValue);
 			}
 			//var myJSONText = JSON.stringify( arrayfromjs );
-			var JSONinflowsPP = JSON.stringify( inflowsPP );
-			var JSONoutflowsPP = JSON.stringify( inflowsPP );
+			var JSONinflowsPP 	= JSON.stringify( inflowsPP );
+			var JSONoutflowsPP 	= JSON.stringify( outflowsPP );
 			
 			// var age = document.getElementById('age').value;
 			// var wpm = document.getElementById('wpm').value;
