@@ -38,9 +38,9 @@
 		var vPrincipal 	= document.getElementById("vPrincipal").value;
 		var vTasa 		= document.getElementById("vTasa").value;
 		//var vPeriodValue = vPeriod.options[vPeriod.selectedIndex].value;
-		alert("vPeriod " + vPeriod);
-		alert("vPrincipal " + vPrincipal);
-		alert("vTasa " + vTasa);
+		// alert("vPeriod " + vPeriod);
+		// alert("vPrincipal " + vPrincipal);
+		// alert("vTasa " + vTasa);
 		var domString = '<label for="colFormLabelLg" class="col-sm-10 col-form-label col-form-label-lg">';
 		
 		if(isNaN(vPeriod) || vPeriod=="" || vPeriod==null || vPeriod==0){
@@ -63,7 +63,7 @@
 		domString = domString + '</label>';
 		document.getElementById("errorPP").innerHTML = domString;
 		
-		if(!isNaN(vPeriod) && vPeriod!="" && vPeriod!=null && !isNaN(vPrincipal) && vPrincipal!="" && vPrincipal!=null && !isNaN(vTasa) && vTasa!="" && vTasa!=null){
+		if(!isNaN(vPeriod) && vPeriod!="" && vPeriod!=null && !isNaN(vPrincipal) && vPrincipal!="" && vPrincipal!=null && !isNaN(vTasa) && vTasa!="" && vTasa!=null && vTasa <= 100 && vTasa >= 0){
 			// Call php: PHP and AJAX Example: https://www.tutorialspoint.com/php/php_and_ajax.htm
 			var ajaxRequest;  // The variable that makes Ajax possible!
 			   
@@ -97,18 +97,29 @@
 
 			// Now get the value from user and pass it to
 			// server script.
-				
-			var age = document.getElementById('age').value;
-			var wpm = document.getElementById('wpm').value;
-			var sex = document.getElementById('sex').value;
-			var queryString = "?age=" + age ;
-
-			queryString +=  "&wpm=" + wpm + "&sex=" + sex;
-			ajaxRequest.open("GET", "ajax-example.php" + queryString, true);
-			ajaxRequest.send(null); 
-			   
-			document.getElementById("errorPP").innerHTML = "DAsd";
 			
+			// Get values from Inflows & Outflows into JQuery Arrays encoded as JSON:
+			var inflowsPP  = [];
+			var outflowsPP = [];
+			for(i=1; i <= vPeriod; i++){
+				var getValue = parseInt(document.getElementById("inflowPP"+i+"").value);
+				inflowsPP.push(getValue);
+				getValue = parseInt(document.getElementById("outflowPP"+i+"").value);
+				outflowsPP.push(getValue);
+			}
+			//var myJSONText = JSON.stringify( arrayfromjs );
+			var JSONinflowsPP = JSON.stringify( inflowsPP );
+			var JSONoutflowsPP = JSON.stringify( inflowsPP );
+			
+			// var age = document.getElementById('age').value;
+			// var wpm = document.getElementById('wpm').value;
+			// var sex = document.getElementById('sex').value;
+			
+			var queryString = "?vPeriod=" + vPeriod +"&vPrincipal=" + vPrincipal + "&vTasa=" + vTasa + "&inflowsPP="+JSONinflowsPP + "&outflowsPP="+JSONoutflowsPP;
+			ajaxRequest.open("GET", "PP.php" + queryString, true);
+			ajaxRequest.send(null);
+			   
+			//document.getElementById("errorPP").innerHTML = "DAsd";
 		}
 	}
 	
