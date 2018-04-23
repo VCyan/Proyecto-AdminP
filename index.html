@@ -9,7 +9,7 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 		<!-- MAIN CSS -->
 		<link rel="stylesheet" href="main.css">
-		
+
 		<!-- Bootstrap JS  -->
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -18,11 +18,11 @@
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 
 		<title>PROJECT MANAGER</title>
-		
+
 		<!-- Scripts -->
 		<!-- NOTA: Cuidado, podria usarse tanto id's como name's, name's es el apropiado para forms pero solo aplica si usamos submit. -->
 		<script src="scripts/PP.js"></script>
-		
+
 	</head>
 	<body class="p-3 mb-2 bg-light text-dark">
 	<div  class="mx-auto" style="width: 80%;">
@@ -34,27 +34,27 @@
 		<h3>Materia: </h3> <h4>Evaluación y administración de proyectos </h4> <br>
 		<h3>Proyecto: </h3> <h4>Portfolio Evaluation Tool</h4><br>
 	<!-- METHOD BAR-->
-		<ul class="nav nav-pills red" id="pills-tab" role="tablist">
+		<ul class="nav nav-pills nav-justified" id="pills-tab" role="tablist">
 			<li class="nav-item">
-				<a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Payback Period</a>
+				<a class="nav-link active" id="pills-1-PP-tab" data-toggle="pill" href="#pills-1-PP" role="tab" aria-controls="pills-1-PP" aria-selected="true">Payback Period</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">NPV</a>
+				<a class="nav-link" id="pills-2-NPV-tab" data-toggle="pill" href="#pills-2-NPV" role="tab" aria-controls="pills-2-NPV" aria-selected="false">NPV</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Checklist</a>
+				<a class="nav-link" id="pills-3-Checklist-tab" data-toggle="pill" href="#pills-3-Checklist" role="tab" aria-controls="pills-3-Checklist" aria-selected="false">Checklist</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Depreciation</a>
+				<a class="nav-link" id="pills-4-Depreciation-tab" data-toggle="pill" href="#pills-4-Depreciation" role="tab" aria-controls="pills-4-Depreciation" aria-selected="false">Depreciation</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Project Screening Matrix</a>
+				<a class="nav-link" id="pills-5-PSM-tab" data-toggle="pill" href="#pills-5-PSM" role="tab" aria-controls="pills-5-PSM" aria-selected="false">Project Screening Matrix</a>
 			</li>
 		</ul>
 	<!-- TABS -->
 		<!-- 1. Method: Payback Period -->
 		<div class="tab-content" id="pills-tabContent">
-			<div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+			<div class="tab-pane fade show active" id="pills-1-PP" role="tabpanel" aria-labelledby="pills-1-PP-tab">
 			<br>
 				<p class="text-justify">Method of evaluating investment opportunities and product development projects on the basis of the time taken to recoup the investment.</p>
 			<br>
@@ -81,7 +81,7 @@
 							<input type="button" class="btn btn-primary btn-block" value="Calcular PP" onclick="validateData();">
 						</div>
 					</div>
-					
+
 					<div class="form-group row">
 						<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Principal</label>
 						<!-- <div class="col-sm-10"> -->
@@ -95,10 +95,10 @@
 							</div>
 						</div>
 						<div class="col-sm-5">
-							<input type="reset" class="btn btn-primary btn-block" value="Limpiar Datos" onclick="generateTable();">
+							<input type="reset" class="btn btn-primary btn-block" value="Limpiar Datos">
 						</div>
 					</div>
-				  
+
 				  <div class="form-group row">
 					<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Tasa de Interes (%)</label>
 					<div class="col-sm-4">
@@ -106,7 +106,7 @@
 					  <input type="number" min="0" max="100" class="form-control form-control-lg" id="vTasa" placeholder="0 - 100">
 					</div>
 				  </div>
-				  
+
 				</form>
 				<!-- Aqui se entrega a errorPP -->
 				<div id="errorPP">
@@ -125,7 +125,7 @@
 				</div>
 			</div>
 		<!-- 2. Method: NPV -->
-			<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+			<div class="tab-pane fade" id="pills-2-NPV" role="tabpanel" aria-labelledby="pills-2-NPV-tab">
 				<p> Technique that involves estimating future net cash flows of an investment, discounting those cash flows using a discount rate and then subtracting the net initial outlay from the present value of the net cash flows. </p>
 
 				<form>
@@ -180,29 +180,38 @@
 				<div id="divNPV">
 				</div>
 			</div>
-		<!-- 3. Method:  -->	
-			<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-				<p> Breve description de PP </p>
+		<!-- 3. Method: Checklist -->
+			<div class="tab-pane fade" id="pills-3-Checklist" role="tabpanel" aria-labelledby="pills-3-Checklist-tab">
+				<br>
+					<p> 3. Method: Checklist </p>
+				<br>
 			</div>
-		<!-- 4. Method:  -->	
-			<div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-				<p> Breve description de PP </p>
+		<!-- 4. Method: Depreciation -->
+			<div class="tab-pane fade" id="pills-4-Depreciation" role="tabpanel" aria-labelledby="pills-4-Depreciation-tab">
+				<br>
+					<p> 4. Method: Depreciation </p>
+				<br>
 			</div>
-			
-			<div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
-				<p> Breve description de PP </p>
+		<!-- 5. Method: Project Screening Method -->
+			<div class="tab-pane fade" id="pills-5-PSM" role="tabpanel" aria-labelledby="pills-5-PSM-tab">
+				<br>
+					<p> 5. Method: Project Screening Method </p>
+				<br>
+				<div class="col-sm-5">
+							<input type="button" class="btn btn-primary btn-block" value="Abrir Excel" onclick="generateTable();">
+				</div>
 			</div>
 		</div>
 	</div>
-	
+
 	<br>
 	<br>
-	
+
 	<br>
 	<br>
-	
+
 	<br>
 	<br>
-	
+
 	</body>
 </html>
