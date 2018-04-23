@@ -122,39 +122,43 @@
 			ajaxRequest.send(null);
 
 			//document.getElementById("errorPP").innerHTML = "DAsd";
+			createTablePP(vPeriod, vPrincipal, inflowsPP, outflowsPP);
 		}
 	}
 	
-	//var ctx = document.getElementById('chart');
-	var aN = [65,59,80,81,56,55,40];
-	var aO = [-10,-20,-8,-54,-23,-65,-90]
-	var barChartData = {
-			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
-			datasets: [{
-				label: 'Dataset 1',
-				backgroundColor: "rgba(255, 99, 132, 0.2)",//window.chartColors.red,
-				data: 
-					aN
-				
-			}, {
-				label: 'Dataset 2',
-				backgroundColor: "rgba(54, 162, 235, 0.2)",//window.chartColors.blue,
-				data: 
-					aO
-				
-			}]
-
-		};
-		window.onload = function() {
+	// Function to create table for Payback Period:
+		function createTablePP(vPeriod, vPrincipal, inflowsPP, outflowsPP) {
+			// Transforming data to be presented in table
+			var nPeriod = [];
+			for (var i = 1; i <= vPeriod; i++) {nPeriod.push('Periodo: '+i);}
+			outflowsPP.forEach( function(item, index, array) {outflowsPP[index] = item * -1 });
+			// Create Table using Chart.js
 			var ctx = document.getElementById('chart').getContext('2d');
-			window.myBar = new Chart(ctx, {
+			var myChart = new Chart(ctx, {
 					responsive: true,
+					scaleGridLineColor: 'black',
 					type: 'bar',
-					data: barChartData,
+					data: {
+							labels: nPeriod,
+							datasets: [
+								{
+									label: 'Inflow',
+									backgroundColor: "rgba(75, 192, 192, 0.2)",//"rgba(54, 162, 235, 0.2)",//window.chartColors.red,
+									data: inflowsPP,
+									fill:true
+								},
+								{
+									label: 'Outflow',
+									backgroundColor: '#EBCCD1',//"rgba(255, 99, 132, 0.2)",//window.chartColors.blue,
+									data: outflowsPP,
+									fill:false
+								}
+							]
+						},
 					options: {
 						title: {
 							display: true,
-							text: 'Chart.js Bar Chart - Stacked'
+							text: 'Some title if you want...'
 						},
 						tooltips: {
 							mode: 'index',
@@ -164,6 +168,9 @@
 						scales: {
 							xAxes: [{
 								stacked: true,
+								gridLines: {
+									offsetGridLines: false
+								}
 							}],
 							yAxes: [{
 								stacked: true
@@ -172,14 +179,7 @@
 					}
 			}
 			);
-
 		}
-
-
-
-
-
-
 
 	function generate_TableNPV() {
 		var vPeriod = document.getElementById("vPeriod2");
