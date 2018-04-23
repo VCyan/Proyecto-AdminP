@@ -11,10 +11,10 @@
 	mysql_select_db($dbname) or die(mysql_error()); */
 
 	// Retrieve data from Query String
-	$vPeriod = $_GET['vPeriod'];
+	$vPeriod    = $_GET['vPeriod'];
 	$vPrincipal = $_GET['vPrincipal'];
 	$vPrincipal = 0 - $vPrincipal; // Transforming positive PRINCIPAL as Negative value
-	$vTasa = $_GET['vTasa'];
+	$vTasa      = $_GET['vTasa'];
 	$inflowsPP  = json_decode($_GET['inflowsPP']);
 	$outflowsPP = json_decode($_GET['outflowsPP']);
 
@@ -56,7 +56,7 @@
 	// $qry_result = mysql_query($query) or die(mysql_error());
 
 	//Build Result String
-	$display_string = "<table class=\"table table-bordered table-hover\" id=\"tablePP\">";
+	$display_string  = "<table class=\"table table-bordered table-hover\" id=\"tablePP\">";
 	$display_string .= "<thead class=\"thead-dark\"><tr><th scope=\"col\"># Period</th><th scope=\"col\">Infows</th><th scope=\"col\">Outflows</th><th scope=\"col\">Cummulative Cashflow</th></tr></thead>";
 	$display_string .= "<tbody>";
 
