@@ -65,7 +65,7 @@
 						<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Periodos</label>
 						<!-- INPUT de PERIODOS -->
 						<div class="col-sm-5">
-							<select class="custom-select" id="vPeriod"  onchange="generateTable(this.value)">
+							<select class="form-control form-control-lg" id="vPeriod"  onchange="generateTable(this.value)">
 								<option value="0"> -- Select a number of Periods -- </option>
 								<option value="1">1</option>
 								<option value="2">2</option>
@@ -80,7 +80,7 @@
 							</select>
 						</div>
 						<div class="col-sm-5">
-							<input type="button" class="btn btn-primary btn-block" value="Calcular PP" onclick="validateData();">
+							<input type="reset" class="btn btn-danger btn-lg btn-block" value="Limpiar Datos" onclick="generateTable();">
 						</div>
 					</div>
 
@@ -97,7 +97,7 @@
 							</div>
 						</div>
 						<div class="col-sm-5">
-							<input type="reset" class="btn btn-primary btn-block" value="Limpiar Datos">
+							<input type="button" class="btn btn-primary btn-lg" value="Calcular Payback Period" onclick="validateData();">
 						</div>
 					</div>
 
@@ -105,7 +105,7 @@
 					<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Tasa de Interes (%)</label>
 					<div class="col-sm-4">
 					<!-- INPUT de TASA DE INTERES -->
-					  <input type="number" min="0" max="100" class="form-control form-control-lg" id="vTasa" placeholder="0 - 100">
+					  <input type="number" min="0" max="100" class="form-control form-control-lg" id="vTasa" placeholder="0 - 100%">
 					</div>
 				  </div>
 

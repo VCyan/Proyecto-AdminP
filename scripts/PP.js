@@ -121,7 +121,7 @@
 			ajaxRequest.open("GET", "PP.php" + queryString, true);
 			ajaxRequest.send(null);
 
-			//document.getElementById("errorPP").innerHTML = "DAsd";
+			//document.getElementById("errorPP").innerHTML = "Dasd";
 			createTablePP(vPeriod, vPrincipal, inflowsPP, outflowsPP);
 		}
 	}
@@ -130,7 +130,9 @@
 		function createTablePP(vPeriod, vPrincipal, inflowsPP, outflowsPP) {
 			// Transforming data to be presented in table
 			var nPeriod = [];
-			for (var i = 1; i <= vPeriod; i++) {nPeriod.push('Periodo: '+i);}
+			for (var i = 0; i <= vPeriod; i++) {nPeriod.push('Periodo: '+i);}
+			inflowsPP.unshift(0); // Insert 0 inflow at the beginning of Array.
+			outflowsPP.unshift(vPrincipal); // Insert PRINCIPAL at the beginning of Array.
 			outflowsPP.forEach( function(item, index, array) {outflowsPP[index] = item * -1 });
 			// Create Table using Chart.js
 			var ctx = document.getElementById('chart').getContext('2d');
@@ -143,13 +145,16 @@
 							datasets: [
 								{
 									label: 'Inflow',
-									backgroundColor: "rgba(75, 192, 192, 0.2)",//"rgba(54, 162, 235, 0.2)",//window.chartColors.red,
+									backgroundColor: '#00E200',//"rgba(75, 192, 192, 0.2)",//"rgba(54, 162, 235, 0.2)",//window.chartColors.red,
+									borderWidth: 2,
 									data: inflowsPP,
 									fill:true
 								},
 								{
 									label: 'Outflow',
-									backgroundColor: '#EBCCD1',//"rgba(255, 99, 132, 0.2)",//window.chartColors.blue,
+									backgroundColor: '#FF3333',//"rgba(255, 99, 132, 0.2)",//window.chartColors.blue,
+									//borderColor: '#1a0000',
+									borderWidth: 2,
 									data: outflowsPP,
 									fill:false
 								}
@@ -162,7 +167,7 @@
 						},
 						tooltips: {
 							mode: 'index',
-							intersect: false
+							intersect: true
 						},
 						responsive: true,
 						scales: {
