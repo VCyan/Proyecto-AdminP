@@ -124,9 +124,56 @@
 			//document.getElementById("errorPP").innerHTML = "DAsd";
 		}
 	}
+	
+	//var ctx = document.getElementById('chart');
+	var aN = [65,59,80,81,56,55,40];
+	var aO = [-10,-20,-8,-54,-23,-65,-90]
+	var barChartData = {
+			labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+			datasets: [{
+				label: 'Dataset 1',
+				backgroundColor: "rgba(255, 99, 132, 0.2)",//window.chartColors.red,
+				data: 
+					aN
+				
+			}, {
+				label: 'Dataset 2',
+				backgroundColor: "rgba(54, 162, 235, 0.2)",//window.chartColors.blue,
+				data: 
+					aO
+				
+			}]
 
+		};
+		window.onload = function() {
+			var ctx = document.getElementById('chart').getContext('2d');
+			window.myBar = new Chart(ctx, {
+					responsive: true,
+					type: 'bar',
+					data: barChartData,
+					options: {
+						title: {
+							display: true,
+							text: 'Chart.js Bar Chart - Stacked'
+						},
+						tooltips: {
+							mode: 'index',
+							intersect: false
+						},
+						responsive: true,
+						scales: {
+							xAxes: [{
+								stacked: true,
+							}],
+							yAxes: [{
+								stacked: true
+							}]
+						}
+					}
+			}
+			);
 
-
+		}
 
 
 
