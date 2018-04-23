@@ -28,7 +28,7 @@
 	//$interest = array($interest1);
 	
 	for($i = 0; $i < $vPeriod; $i++) {
-		$net = $inflowsPP[$i] - abs($outflowsPP[$i]);
+		$net = abs($inflowsPP[$i]) - abs($outflowsPP[$i]);
 		if($interest < 0){
 			// if we still owe money, then there is still an interest...
 			$interest = $interest * (1+$vTasa/100);
