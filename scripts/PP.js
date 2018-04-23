@@ -121,18 +121,70 @@
 			ajaxRequest.open("GET", "PP.php" + queryString, true);
 			ajaxRequest.send(null);
 
-			//document.getElementById("errorPP").innerHTML = "DAsd";
+			//document.getElementById("errorPP").innerHTML = "Dasd";
+			createTablePP(vPeriod, vPrincipal, inflowsPP, outflowsPP);
 		}
 	}
-
-
-
-
-
-
-
-
-
+	
+	// Function to create table for Payback Period:
+		function createTablePP(vPeriod, vPrincipal, inflowsPP, outflowsPP) {
+			// Transforming data to be presented in table
+			var nPeriod = [];
+			for (var i = 0; i <= vPeriod; i++) {nPeriod.push('Periodo: '+i);}
+			inflowsPP.unshift(0); // Insert 0 inflow at the beginning of Array.
+			outflowsPP.unshift(vPrincipal); // Insert PRINCIPAL at the beginning of Array.
+			outflowsPP.forEach( function(item, index, array) {outflowsPP[index] = item * -1 });
+			// Create Table using Chart.js
+			var ctx = document.getElementById('chart').getContext('2d');
+			var myChart = new Chart(ctx, {
+					responsive: true,
+					scaleGridLineColor: 'black',
+					type: 'bar',
+					data: {
+							labels: nPeriod,
+							datasets: [
+								{
+									label: 'Inflow',
+									backgroundColor: '#00E200',//"rgba(75, 192, 192, 0.2)",//"rgba(54, 162, 235, 0.2)",//window.chartColors.red,
+									borderWidth: 2,
+									data: inflowsPP,
+									fill:true
+								},
+								{
+									label: 'Outflow',
+									backgroundColor: '#FF3333',//"rgba(255, 99, 132, 0.2)",//window.chartColors.blue,
+									//borderColor: '#1a0000',
+									borderWidth: 2,
+									data: outflowsPP,
+									fill:false
+								}
+							]
+						},
+					options: {
+						title: {
+							display: true,
+							text: 'Some title if you want...'
+						},
+						tooltips: {
+							mode: 'index',
+							intersect: true
+						},
+						responsive: true,
+						scales: {
+							xAxes: [{
+								stacked: true,
+								gridLines: {
+									offsetGridLines: false
+								}
+							}],
+							yAxes: [{
+								stacked: true
+							}]
+						}
+					}
+			}
+			);
+		}
 
 	function generate_TableNPV() {
 		var vPeriod = document.getElementById("vPeriod2");
