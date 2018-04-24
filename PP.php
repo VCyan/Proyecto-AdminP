@@ -66,7 +66,7 @@
 		$display_string .= "<tr><th scope=\"row\">".($i+1)."</th>";
 			$display_string .= "<td><input type=\"number\" class=\"form-control\" id=\"inflowPP".($i+1)."\" name=\"inflowPP".($i+1)."\"  onfocus=\"this.select()\" value=\"$inflowsPP[$i]\"></td>";
 			$display_string .= "<td><input type=\"number\" class=\"form-control\" id=\"outflowPP".($i+1)."\" name=\"outflowPP$i\" onfocus=\"this.select()\" value=\"$outflowsPP[$i]\"></td>";
-			$display_string .= "<td><input type=\"text\"   class=\"form-control\" id=\"cummuCfPP".($i+1)."\" name=\"cummCfPP$i\" placeholder=\"$cummuCfPP[$i]\" disabled></td>";
+			$display_string .= "<td><input type=\"text\"   class=\"form-control\" id=\"cummuCfPP".($i+1)."\" name=\"cummCfPP$i\" value=\"$cummuCfPP[$i]\" disabled></td>";
 		$display_string .= "</tr>";
 	}
 
