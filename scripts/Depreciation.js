@@ -19,8 +19,8 @@ function Limpiar() {
      document.getElementById("divSL").innerHTML = "";
      document.getElementById("forma1").reset();
    }
-   if(choseone==2){
-     document.getElementById("divSL").innerHTML = "";
+   else{
+     document.getElementById("divM").innerHTML = "";
      document.getElementById("forma2").reset();
    }
 }
