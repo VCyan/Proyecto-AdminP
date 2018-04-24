@@ -90,12 +90,16 @@ function generate_TableNPV(vPeriodValue2)
 		if(isNaN(vPeriodSV) || vPeriodSV=="" || vPeriodSV==null || vPeriodSV==0){
 			domString = domString + "ERROR: El periodo de aplicación para el 'salvage value' no está definido...<br>";
 		}
+		if(vPeriodSV > vPeriod2)
+		{
+			domString = domString + "ERROR: El periodo de aplicacion para el 'salvage value' no puede ser mayor al número de periodos...<br>";
+		}
 		
 		domString = domString + '</label>';
 		document.getElementById("errorNPV").innerHTML = domString;
 		
-		if(!isNaN(vPeriod2) && vPeriod2!="" && vPeriod2!=null && !isNaN(vPrincipal2) && vPrincipal2!="" && vPrincipal2!=null && !isNaN(vTasa2) && vTasa2!="" && vTasa2!=null && vTasa2 <= 100 && vTasa2 >= 0 && !isNaN(vTasaTax) && vTasaTax!="" && vTasaTax!=null && vTasaTax <= 100 && vTasaTax >= 0 && !isNaN(vSValue) && vSValue!="" && vSValue!=null && !isNaN(vPeriodSV) && vPeriodSV!="" && vPeriodSV!=null){
-			// Call php: PHP and AJAX Example: https://www.tutorialspoint.com/php/php_and_ajax.htm
+		if(!isNaN(vPeriod2) && vPeriod2!="" && vPeriod2!=null && !isNaN(vPrincipal2) && vPrincipal2!="" && vPrincipal2!=null && !isNaN(vTasa2) && vTasa2!="" && vTasa2!=null && vTasa2 <= 100 && vTasa2 >= 0 && !isNaN(vTasaTax) && vTasaTax!="" && vTasaTax!=null && vTasaTax <= 100 && vTasaTax >= 0 && !isNaN(vSValue) && vSValue!="" && vSValue!=null && !isNaN(vPeriodSV) && vPeriodSV!="" && vPeriodSV!=null && vPeriodSV <= vPeriod2){
+			// Call php: PHP and AJAX Example: https://www.tutorialspoint.com/php/php_and_ajax.htms
 			var ajaxRequest;  // The variable that makes Ajax possible!
 			   
 			try {
