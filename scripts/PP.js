@@ -21,6 +21,7 @@
 			for(i=1; i <= vPeriodValue; i++)
 			{
 				domString = domString + '<tr><th scope="row">'+ i +'</th>';
+				// Insert here a input group if you want to add the $ symbol inside the 
 					domString = domString + '<td><input type="number" class="form-control" id="inflowPP'+i+'"  name="inflowPP'+i+'"  onfocus="this.select()" value="0"></td>';
 					domString = domString + '<td><input type="number" class="form-control" id="outflowPP'+i+'" name="outflowPP'+i+'" onfocus="this.select()" value="0"></td>';
 					domString = domString + '<td><input type="text"   class="form-control" id="cummuCfPP'+i+'" name="cummCfPP'+i+'"placeholder="Disabled input here..." disabled></td>';
