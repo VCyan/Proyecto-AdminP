@@ -62,11 +62,24 @@
 
 	// Insert a new row in the table for each person returned
 	// while($row = mysql_fetch_array($qry_result))
+	$flag = 0;
+	// Note: We start i = 0, because arrays start at 0.
 	for($i = 0; $i < $vPeriod; $i++){
 		$display_string .= "<tr><th scope=\"row\">".($i+1)."</th>";
 			$display_string .= "<td><input type=\"number\" class=\"form-control\" id=\"inflowPP".($i+1)."\" name=\"inflowPP".($i+1)."\"  onfocus=\"this.select()\" value=\"$inflowsPP[$i]\"></td>";
 			$display_string .= "<td><input type=\"number\" class=\"form-control\" id=\"outflowPP".($i+1)."\" name=\"outflowPP$i\" onfocus=\"this.select()\" value=\"$outflowsPP[$i]\"></td>";
-			$display_string .= "<td><input type=\"text\"   class=\"form-control\" id=\"cummuCfPP".($i+1)."\" name=\"cummCfPP$i\" value=\"$cummuCfPP[$i]\" disabled></td>";
+			
+			if($cummuCfPP[$i] < 0){			
+				$display_string .= "<td><input type=\"text\"   class=\"form-control text-danger\" id=\"cummuCfPP".($i+1)."\" name=\"cummCfPP$i\" value=\"$cummuCfPP[$i]\" disabled></td>";	
+			}
+			elseif($cummuCfPP[$i] >= 0 && $flag == 0){
+				$display_string .= "<td><input type=\"text\"   class=\"form-control bg-success text-white\" id=\"cummuCfPP".($i+1)."\" name=\"cummCfPP$i\" value=\"$cummuCfPP[$i]\" disabled></td>";
+				$flag = 1;
+			}
+			elseif($flag == 1){
+				$display_string .= "<td><input type=\"text\"   class=\"form-control text-success\" id=\"cummuCfPP".($i+1)."\" name=\"cummCfPP$i\" value=\"$cummuCfPP[$i]\" disabled></td>";
+				$flag = 1;
+			}
 		$display_string .= "</tr>";
 	}
 
