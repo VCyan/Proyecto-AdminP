@@ -24,7 +24,7 @@
 				// Insert here a input group if you want to add the $ symbol inside the 
 					domString = domString + '<td><input type="number" class="form-control" id="inflowPP'+i+'"  name="inflowPP'+i+'"  onfocus="this.select()" value="0"></td>';
 					domString = domString + '<td><input type="number" class="form-control" id="outflowPP'+i+'" name="outflowPP'+i+'" onfocus="this.select()" value="0"></td>';
-					domString = domString + '<td><input type="text"   class="form-control" id="cummuCfPP'+i+'" name="cummCfPP'+i+'"placeholder="Disabled input here..." disabled></td>';
+					domString = domString + '<td><input type="text"   class="form-control" id="cummuCfPP'+i+'" name="cummCfPP'+i+'"  placeholder="Disabled input here..." disabled></td>';
 				domString = domString + '</tr>';
 			}
 		}
@@ -32,9 +32,18 @@
 		domString = domString + '</tbody></table>';
 
 		document.getElementById("divPP").innerHTML = domString;
+		deleteChartPP();
+	}
+	
+	function deleteChartPP(){
+		// Delete Chart from HTML and recreate a new canvas for a new Chart.
+		$('#chartPP').remove(); // this is my <canvas> element
+		$('#canvasPP').append('<canvas id="chartPP"><canvas>');
 	}
 
 	function validateData() {
+		deleteChartPP();
+		
 		var vPeriod 	= document.getElementById("vPeriod").value;
 		var vPrincipal 	= document.getElementById("vPrincipal").value;
 		var vTasa 		= document.getElementById("vTasa").value;
@@ -123,69 +132,68 @@
 			ajaxRequest.send(null);
 
 			//document.getElementById("errorPP").innerHTML = "Dasd";
-			createTablePP(vPeriod, vPrincipal, inflowsPP, outflowsPP);
+			createChartPP(vPeriod, vPrincipal, inflowsPP, outflowsPP);
 		}
 	}
 	
 	// Function to create table for Payback Period:
-		function createTablePP(vPeriod, vPrincipal, inflowsPP, outflowsPP) {
-			// Transforming data to be presented in table
-			var nPeriod = [];
-			for (var i = 0; i <= vPeriod; i++) {nPeriod.push('Periodo: '+i);}
-			inflowsPP.unshift(0); // Insert 0 inflow at the beginning of Array.
-			outflowsPP.unshift(vPrincipal); // Insert PRINCIPAL at the beginning of Array.
-			outflowsPP.forEach( function(item, index, array) {outflowsPP[index] = item * -1 });
-			// Create Table using Chart.js
-			var ctx = document.getElementById('chart').getContext('2d');
-			var myChart = new Chart(ctx, {
-					responsive: true,
-					scaleGridLineColor: 'black',
-					type: 'bar',
-					data: {
-							labels: nPeriod,
-							datasets: [
-								{
-									label: 'Inflow',
-									backgroundColor: '#00E200',//"rgba(75, 192, 192, 0.2)",//"rgba(54, 162, 235, 0.2)",//window.chartColors.red,
-									borderWidth: 2,
-									data: inflowsPP,
-									fill:true
-								},
-								{
-									label: 'Outflow',
-									backgroundColor: '#FF3333',//"rgba(255, 99, 132, 0.2)",//window.chartColors.blue,
-									//borderColor: '#1a0000',
-									borderWidth: 2,
-									data: outflowsPP,
-									fill:false
-								}
-							]
-						},
-					options: {
-						title: {
-							display: true,
-							text: 'Some title if you want...'
-						},
-						tooltips: {
-							mode: 'index',
-							intersect: true
-						},
-						responsive: true,
-						scales: {
-							xAxes: [{
-								stacked: true,
-								gridLines: {
-									offsetGridLines: false
-								}
-							}],
-							yAxes: [{
-								stacked: true
-							}]
-						}
+	function createChartPP(vPeriod, vPrincipal, inflowsPP, outflowsPP) {
+		// Transforming data to be presented in table
+		var nPeriod = [];
+		for (var i = 0; i <= vPeriod; i++) {nPeriod.push('Periodo: '+i);}
+		inflowsPP.unshift(0); // Insert 0 inflow at the beginning of Array.
+		outflowsPP.unshift(vPrincipal); // Insert PRINCIPAL at the beginning of Array.
+		outflowsPP.forEach( function(item, index, array) {outflowsPP[index] = item * -1 });
+		// Create Table using Chart.js
+		var ctx = document.getElementById('chartPP').getContext('2d');
+		var myChart = new Chart(ctx, {
+				responsive: true,
+				scaleGridLineColor: 'black',
+				type: 'bar',
+				data: {
+						labels: nPeriod,
+						datasets: [
+							{
+								label: 'Inflow',
+								backgroundColor: '#00E200',//"rgba(75, 192, 192, 0.2)",//"rgba(54, 162, 235, 0.2)",//window.chartColors.red,
+								borderWidth: 5,
+								data: inflowsPP,
+								fill:true
+							},
+							{
+								label: 'Outflow',
+								backgroundColor: '#FF3333',//"rgba(255, 99, 132, 0.2)",//window.chartColors.blue,
+								//borderColor: '#1a0000',
+								borderWidth: 5,
+								data: outflowsPP,
+								fill:false
+							}
+						]
+					},
+				options: {
+					title: {
+						display: true,
+						text: 'Some title if you want...'
+					},
+					tooltips: {
+						mode: 'index',
+						intersect: true
+					},
+					scales: {
+						xAxes: [{
+							stacked: true,
+							gridLines: {
+								offsetGridLines: false
+							}
+						}],
+						yAxes: [{
+							stacked: true
+						}]
 					}
+				}
 			}
-			);
-		}
+		);
+	}
 
 	function generate_TableNPV() {
 		var vPeriod = document.getElementById("vPeriod2");
