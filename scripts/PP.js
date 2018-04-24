@@ -32,13 +32,17 @@
 		domString = domString + '</tbody></table>';
 
 		document.getElementById("divPP").innerHTML = domString;
-		//document.getElementById("chartPP").innerHTML = "";
+		deleteChartPP();
 	}
-
-	function validateData() {
+	
+	function deleteChartPP(){
 		// Delete Chart from HTML and recreate a new canvas for a new Chart.
 		$('#chartPP').remove(); // this is my <canvas> element
 		$('#canvasPP').append('<canvas id="chartPP"><canvas>');
+	}
+
+	function validateData() {
+		deleteChartPP();
 		
 		var vPeriod 	= document.getElementById("vPeriod").value;
 		var vPrincipal 	= document.getElementById("vPrincipal").value;
@@ -187,7 +191,7 @@
 						}]
 					}
 				}
-		}
+			}
 		);
 	}
 

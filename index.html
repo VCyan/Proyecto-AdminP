@@ -109,7 +109,12 @@
 						<label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">Tasa de Interes (%)</label>
 						<div class="col-sm-5">
 							<!-- INPUT de TASA DE INTERES -->
-							<input type="number" min="0" max="100" class="form-control form-control-lg" id="vTasa" placeholder="0 - 100%" aria-label="Amount (to the nearest tax)">
+							<div class="input-group">
+								<input type="number" min="0" max="100" class="form-control form-control-lg" id="vTasa" placeholder="0 - 100%" aria-label="Amount (to the nearest tax)">
+								<div class="input-group-prepend">
+									<span class="input-group-text">%</span>
+								</div>
+							</div>
 						</div>
 					</div>
 

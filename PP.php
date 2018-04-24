@@ -34,7 +34,7 @@
 			$interest = $interest * (1+$vTasa/100);
 		}
 		$netCash = $interest + $net; // $vPrincipal + $interest + $net;
-		array_push($cummuCfPP,$netCash);
+		array_push($cummuCfPP,round($netCash,2));
 		$interest = $netCash;
 	}
 
