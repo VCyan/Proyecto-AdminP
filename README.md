@@ -1,9 +1,10 @@
 # Proyecto-AdminP
 Proyecto de la clase de Aministracion de Proyectos. 
 
-There are still some issues to improve in Payback Period as for example:
+Still some fixes to do over Payback Period like:
 
-- Design with Bootstrap
-- Color remarkable over Cummulative CashFlow
-- Exact year where the inversion was return.
-- Use of Chart.js
+- Delete the error display, from Limpiar Datos.
+- Define the instructions and usage.
+- Add exact year when the inversion is returned.
+
+Signed-off-by: VCyan10 <martinvictor45@hotmail.com>
