@@ -39,12 +39,19 @@ function generate_TableNPV(vPeriodValue2)
 		domString = domString + '</tbody></table>';
 		
 		document.getElementById("divNPV").innerHTML = domString;
-	}
+        deleteChartNPV();
+    }
 
+	function deleteChartNPV(){
+		// Delete Chart from HTML and recreate a new canvas for a new Chart.
+		$('#chartNPV').remove(); // this is my <canvas> element
+		$('#canvasNPV').append('<canvas id="chartNPV"><canvas>');
+	}
 
 	function validateData2() 
 	{
-		var vPeriod2 	= document.getElementById("vPeriod2").value;
+        deleteChartNPV();
+        var vPeriod2 	= document.getElementById("vPeriod2").value;
 		var vPrincipal2 	= document.getElementById("vPrincipal2").value;
 		var vTasa2 		= document.getElementById("vTasa2").value;
 		var vTasaTax 		= document.getElementById("vTasaTax").value;
@@ -155,7 +162,67 @@ function generate_TableNPV(vPeriodValue2)
 			var queryString = "?vPeriod2=" + vPeriod2 +"&vPrincipal2=" + vPrincipal2 +"&vTasa2=" + vTasa2 +"&vTasaTax=" + vTasaTax +"&vSValue=" + vSValue +"&vPeriodSV=" + vPeriodSV +"&inflowsNPV="+JSONinflowsNPV + "&outflowsNPV="+JSONoutflowsNPV;
 			ajaxRequest.open("GET", "NPV.php" + queryString, true);
 			ajaxRequest.send(null);
-			   
+            createChartNPV(vPeriod2, vPrincipal2, inflowsNPV, outflowsNPV,vSValue,vPeriodSV);
 			//document.getElementById("errorPP").innerHTML = "DAsd";
 		}
 	}
+
+// Function to create table for Payback Period:
+function createChartNPV(vPeriod, vPrincipal, inflowsPP, outflowsPP,svalue,periodsv) {
+    // Transforming data to be presented in table
+    var nPeriod = [];
+    for (var i = 0; i <= vPeriod; i++) {nPeriod.push('Periodo: '+i);}
+    inflowsPP.unshift(0); // Insert 0 inflow at the beginning of Array.
+	inflowsPP[periodsv] = parseInt(inflowsPP[periodsv]) + parseInt(svalue);
+    outflowsPP.unshift(vPrincipal); // Insert PRINCIPAL at the beginning of Array.
+    outflowsPP.forEach( function(item, index, array) {outflowsPP[index] = item * -1 });
+    // Create Table using Chart.js
+    var ctx = document.getElementById('chartNPV').getContext('2d');
+    var myChartNPV = new Chart(ctx, {
+            responsive: true,
+            scaleGridLineColor: 'black',
+            type: 'bar',
+            data: {
+                labels: nPeriod,
+                datasets: [
+                    {
+                        label: 'Inflow',
+                        backgroundColor: '#00E200',//"rgba(75, 192, 192, 0.2)",//"rgba(54, 162, 235, 0.2)",//window.chartColors.red,
+                        borderWidth: 5,
+                        data: inflowsPP,
+                        fill:true
+                    },
+                    {
+                        label: 'Outflow',
+                        backgroundColor: '#FF3333',//"rgba(255, 99, 132, 0.2)",//window.chartColors.blue,
+                        //borderColor: '#1a0000',
+                        borderWidth: 5,
+                        data: outflowsPP,
+                        fill:false
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Inflows and Outflows'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                        gridLines: {
+                            offsetGridLines: false
+                        }
+                    }],
+                    yAxes: [{
+                        stacked: true
+                    }]
+                }
+            }
+        }
+    );
+}
