@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74d95b48-dcc8-4393-8b46-fb3de2f96761" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/exportPDF.php" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +16,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="393">
-              <caret line="254" column="69" lean-forward="false" selection-start-line="254" selection-start-column="69" selection-end-line="254" selection-end-column="69" />
+            <state relative-caret-position="597">
+              <caret line="362" column="68" lean-forward="false" selection-start-line="362" selection-start-column="68" selection-end-line="362" selection-end-column="68" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#form#1;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -30,8 +28,8 @@
       <file leaf-file-name="exportPDF.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/exportPDF.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="40" column="21" lean-forward="false" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+            <state relative-caret-position="204">
+              <caret line="11" column="91" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="91" />
               <folding />
             </state>
           </provider>
@@ -76,8 +74,8 @@
         <option value="$PROJECT_DIR$/scripts/PP.js" />
         <option value="$PROJECT_DIR$/scripts/NPV.js" />
         <option value="$PROJECT_DIR$/exportPHP.php" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/exportPDF.php" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -166,12 +164,12 @@
       <updated>1524612990656</updated>
       <workItem from="1524612991861" duration="6064000" />
       <workItem from="1524687865628" duration="114000" />
-      <workItem from="1524688001338" duration="6862000" />
+      <workItem from="1524688001338" duration="7406000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14195000" />
+    <option name="totallyTimeSpent" value="14739000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="35" width="3840" height="2125" extended-state="6" />
@@ -278,8 +276,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="393">
-          <caret line="254" column="69" lean-forward="false" selection-start-line="254" selection-start-column="69" selection-end-line="254" selection-end-column="69" />
+        <state relative-caret-position="597">
+          <caret line="362" column="68" lean-forward="false" selection-start-line="362" selection-start-column="68" selection-end-line="362" selection-end-column="68" />
           <folding>
             <element signature="n#style#0;n#div#0;n#form#1;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
@@ -288,8 +286,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/exportPDF.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="40" column="21" lean-forward="false" selection-start-line="40" selection-start-column="21" selection-end-line="40" selection-end-column="21" />
+        <state relative-caret-position="204">
+          <caret line="11" column="91" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="91" />
           <folding />
         </state>
       </provider>
