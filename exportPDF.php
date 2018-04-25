@@ -11,7 +11,7 @@ $response = $_POST['q'];
 $questions = array(
     "(Strategy/alignment) What specific organization strategy does this project align with?",
     "(Driver) What business problem does the project solve?",
-    "(Success) metrics How will measure success?",
+    "(Success metrics) How will the project measure success?",
     "(Sponsorship) Who is the project sponsor?",
     "(Risk) What is the impact of not doing this project?",
     "(Risk) What is the project risk to our organization?",
@@ -43,6 +43,7 @@ for($i=0;$i<20;$i++){
     $pdf->SetFont('Arial',"B",12);
     $pdf->Cell($pdf->GetStringWidth($questions[$i]),10,$questions[$i],0,1);
     $pdf->SetFont('Arial',"",12);
+    if($response[$i]==''){$response[$i]= "No answer provided";}
     $pdf->Cell($pdf->GetStringWidth($response[$i]),10,$response[$i],0,1);
 }
 $pdf->Output();
