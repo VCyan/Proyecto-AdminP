@@ -7,3 +7,9 @@
 			alert("Error");
 		}
 	}
+	
+	function createTablePSM()
+	{
+		alert("PSM");
+	}
+	
