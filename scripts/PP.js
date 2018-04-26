@@ -51,7 +51,7 @@
 		// alert("vPeriod " + vPeriod);
 		// alert("vPrincipal " + vPrincipal);
 		// alert("vTasa " + vTasa);
-		var domString = '<label for=\"colFormLabelLg\" class=\"col-sm-10 col-form-label col-form-label-lg\">';
+		var domString = '<label for=\"colFormLabelLg\" class=\"alert alert-danger col-sm-10 col-form-label col-form-label-lg\">';
 
 		if(isNaN(vPeriod) || vPeriod=="" || vPeriod==null || vPeriod==0){
 			domString = domString + "ERROR: El número de PERIODOS no está definido...<br>";
@@ -78,6 +78,7 @@
 		}
 		else
 		{
+			document.getElementById("errorPP").innerHTML = "";
 			if(!isNaN(vPeriod) && vPeriod!="" && vPeriod!=null && !isNaN(vPrincipal) && vPrincipal!="" && vPrincipal!=null && !isNaN(vTasa) && vTasa!="" && vTasa!=null && vTasa <= 100 && vTasa >= 0){
 				// Call php: PHP and AJAX Example: https://www.tutorialspoint.com/php/php_and_ajax.htm
 				var ajaxRequest;  // The variable that makes Ajax possible!
