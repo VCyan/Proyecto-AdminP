@@ -96,7 +96,6 @@
         $display_string.="<div class=\"alert alert-success font-weight-bold\" role=\"alert\">¡La inversion si es recuperada! <br> El Payback Period exacto es en: $exactyear años.</div>";
 	}
 	else{
-
 		$display_string.="<div class=\"alert alert-danger\" role=\"alert\">La inversion no conviene, ¡No se recupera el dinero en el tiempo establecido!</div>";
 	}
 	echo $display_string;
