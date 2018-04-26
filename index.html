@@ -35,8 +35,8 @@
 		<h1 align="center">Tecnológico de Monterrey</h1>
 		<img src="images/tec.png" height="150" width="150">
 		<img src="images/itesm.jpg" height="150" width="150" align="right"><br><br>
-		<h3 style="font-size:20px" align="right">Nombre/Número de proyecto: <form align="right"> <input type="text"> </form></h3>
-		<h3 style="font-size:20px" align="right">Nombre Evaluador: <form align="right"> <input type="text"> </form></h3>
+		<h3 style="font-size:20px" align="right">Nombre/Número de proyecto: <form align="right"> <input type="text" onchange="document.getElementById('hiddenTitle').value = this.value;"> </form></h3>
+		<h3 style="font-size:20px" align="right">Nombre Evaluador: <form align="right"> <input type="text" onchange="document.getElementById('hiddenUser').value = this.value;"> </form></h3>
 		<h3>Materia: </h3> <h4>Evaluación y administración de proyectos </h4> <br>
 		<h3>Proyecto: </h3> <h4>Portfolio Evaluation Tool</h4><br>
 	<!-- METHOD BAR-->
@@ -252,6 +252,7 @@
     <!-- 3. Method: Checklist -->
 		<div class="tab-pane fade" id="pills-3-Checklist" role="tabpanel" aria-labelledby="pills-3-Checklist-tab">
 				<br>
+			<form action="exportPDF.php" target="_blank" method="post">
 			<table class="table">
 				<thead class="thead-dark">
 				<tr>
@@ -264,105 +265,109 @@
 				<tr>
 					<th scope="row">Strategy/alignment</th>
 					<td>What specific organization strategy does this project align with?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Driver</th>
 					<td>What business problem does the project solve?</td>
-					<td><input width="100%" type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Success metrics</th>
 					<td>How will the project measure success?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Sponsorship</th>
 					<td>Who is the project sponsor?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Risk</th>
 					<td>What is the impact of not doing this project?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Risk</th>
 					<td>What is the project risk to our organization?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Risk</th>
 					<td>Where does the proposed project fit in our risk profile?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Benefits, value</th>
 					<td>What is the value of the project organization?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Benefits, value</th>
 					<td>When will the project shows result?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Objectives</th>
 					<td>What are the project objectives?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Organization Culture</th>
 					<td>Is our organization culture right for this type of project?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Resources</th>
 					<td>Will internal resources be available for this project?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Approach</th>
 					<td>Will we build or buy?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Schedule</th>
 					<td>How long will this project take?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Schedule</th>
 					<td>Is the timeline realistic?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Training/resources</th>
 					<td>Will staff training be required?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Finance/portfolio</th>
 					<td>What is the estimated cost of the project?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Portfolio</th>
 					<td>Is this a new initiative or path of an existing initiative?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Portfolio</th>
 					<td>How does this project interact with current projects?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				<tr>
 					<th scope="row">Technology</th>
 					<td>Is the technology available or new?</td>
-					<td><input type="text"></td>
+					<td><input type="text" name="q[]" maxlength="90"></td>
 				</tr>
 				</tbody>
 			</table>
+				<input id="hiddenUser" value="" type="hidden" name="userCL">
+				<input id="hiddenTitle" value="" type="hidden" name="titleCL">
+				<input class="btn btn-success" type="Submit" name="Export" value="Export to PDF">
+			</form>
 				<br>
 		</div>
 
