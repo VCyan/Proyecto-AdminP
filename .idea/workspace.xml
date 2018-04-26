@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="74d95b48-dcc8-4393-8b46-fb3de2f96761" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/scripts/NPV.js" afterPath="$PROJECT_DIR$/scripts/NPV.js" />
+      <change beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -13,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1085">
-              <caret line="148" column="107" lean-forward="true" selection-start-line="148" selection-start-column="107" selection-end-line="148" selection-end-column="107" />
+            <state relative-caret-position="949">
+              <caret line="243" column="66" lean-forward="true" selection-start-line="243" selection-start-column="66" selection-end-line="243" selection-end-column="66" />
               <folding>
                 <element signature="n#style#0;n#div#0;n#form#1;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -45,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="NPV.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="NPV.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/scripts/NPV.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1190">
-              <caret line="35" column="137" lean-forward="false" selection-start-line="35" selection-start-column="137" selection-end-line="35" selection-end-column="137" />
+            <state relative-caret-position="1122">
+              <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -75,8 +75,8 @@
         <option value="$PROJECT_DIR$/exportPHP.php" />
         <option value="$PROJECT_DIR$/exportPDF.php" />
         <option value="$PROJECT_DIR$/scripts/PP.js" />
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/scripts/NPV.js" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -170,7 +170,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16129000" />
+    <option name="totallyTimeSpent" value="16232000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="35" width="3840" height="2125" extended-state="6" />
@@ -287,16 +287,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1085">
-          <caret line="148" column="107" lean-forward="true" selection-start-line="148" selection-start-column="107" selection-end-line="148" selection-end-column="107" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#form#1;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/scripts/PP.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="544">
@@ -307,9 +297,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/scripts/NPV.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1190">
-          <caret line="35" column="137" lean-forward="false" selection-start-line="35" selection-start-column="137" selection-end-line="35" selection-end-column="137" />
+        <state relative-caret-position="1122">
+          <caret line="33" column="43" lean-forward="true" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="949">
+          <caret line="243" column="66" lean-forward="true" selection-start-line="243" selection-start-column="66" selection-end-line="243" selection-end-column="66" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#form#1;n#div#3;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
