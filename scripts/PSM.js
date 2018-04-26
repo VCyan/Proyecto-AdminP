@@ -11,16 +11,16 @@
 	{
 		$(document).on("change",".autoCalculate", function() {
 			//Touched element.
-			alert("jsjs");
 			var id = $(this).attr("id");
 			var table = $('#'+id).parents("table:first");
-			table = table.attr("id");
-			
+			var clave = table.attr("id");
+			var idIndex = id.substr(id.length - 1);
 			//for(i=0; i < considerations.length; i++)
-			{
-				alert("Id = "+id);
-				alert("Table = "+table);
-			}
+
+			var rate = $('#'+clave+'R'+idIndex).val();
+			var weig = $('#'+clave+'W'+idIndex).val() / 5 ;
+			var valu = rate * weig;
+			 $('#'+clave+'Wvalue'+idIndex).val(valu.toFixed(2));
 		});
 	}
 	
@@ -29,7 +29,7 @@
 	}
 
 	function automatedTable(addPart, Part, considerations, clave){
-		var domString = '<table class="table table-bordered table-hover" id="'+clave+'PSM">';
+		var domString = '<table class="table table-bordered table-hover" id="'+clave+'">';
 			domString += '<thead class="thead-dark">';
 		// HEADER
 			domString += '<tr>';
@@ -58,7 +58,7 @@
 							domString += '<option value="5">High</option>';
 					domString += '</select>';
 					domString += '<td><input type="number" class="form-control autoCalculate" id="'+clave+'W'+i+'" name="'+clave+'W'+i+'"  onfocus="this.select()" value="'+(100/considerations.length).toFixed(2)+'"></td>';
-					domString += '<td><input type="number" class="form-control autoCalculate" id="'+clave+'Wvalue'+i+'" name="'+clave+'Wvalue'+i+'" value="0" disabled></td>';
+					domString += '<td><input type="number" class="form-control" id="'+clave+'Wvalue'+i+'" name="'+clave+'Wvalue'+i+'" value="0" disabled></td>';
 				domString += '</tr>';
 			}
 		// Total Table
