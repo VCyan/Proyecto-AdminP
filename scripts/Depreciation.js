@@ -26,12 +26,15 @@ function Limpiar() {
 }
 
 function valida(){
+  document.getElementById("errorSL").style.display = "none";
+  document.getElementById("errorM").style.display = "none";
   if(chosenone==1){
     valida1();
   }
   if(chosenone==2){
     valida2();
   }
+
 }
 
 
@@ -46,17 +49,22 @@ function valida1() {
 
     if(dYear=="" || dPeriodo=="" || dPrincipal=="" || dRescue=="" ||dTax==""){
       domString = domString + "ERROR: Alguno de los campos se encuentra vacío<br>";
+      document.getElementById("errorSL").style.display = "block";
     }
     else{
       if(dYear<2000){
         domString = domString + "ERROR: EL año inicial no debe ser menor a 2000<br>";
+         document.getElementById("errorSL").style.display = "block";
       }else{
         if(dPrincipal<=0){
           domString = domString + "ERROR: El principal debe ser un valor mayor a 0<br>";
+          document.getElementById("errorSL").style.display = "block";
+
         }
         else{
           if(dRV<=0){
             domString = domString + "ERROR: El rescue value debe ser un valor mayor a 0<br>";
+            document.getElementById("errorSL").style.display = "block";
           }else{
             var xmlhttp;
             try {
@@ -95,6 +103,7 @@ function valida1() {
     domString = domString + '</label>';
     document.getElementById("errorSL").innerHTML = domString;
 
+
 }
 
 
@@ -108,13 +117,16 @@ function valida2() {
 
     if(dMYear=="" || dMPeriodo=="" || dMPrincipal==""||dMTax==""){
       domString = domString + "ERROR: Alguno de los campos se encuentra vacío<br>";
+      document.getElementById("errorM").style.display = "block";
     }
     else{
       if(dMYear<2000){
         domString = domString + "ERROR: EL año inicial no debe ser menor a 2000<br>";
+        document.getElementById("errorM").style.display = "block";
       }else{
         if(dMPrincipal<=0){
           domString = domString + "ERROR: El principal debe ser un valor mayor a 0<br>";
+          document.getElementById("errorM").style.display = "block";
         }
         else{
           var xmlhttp;
@@ -152,6 +164,6 @@ function valida2() {
 
 
     domString = domString + '</label>';
-    document.getElementById("errorSL").innerHTML = domString;
+    document.getElementById("errorM").innerHTML = domString;
 
 }

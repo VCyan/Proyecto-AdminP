@@ -8,7 +8,7 @@ if($dType==1){
       $dTax       = $dTax/100;
       $dRescue    = $_GET['dRescue'];
 	  
-      $domString  ="<table class=\"table table-bordered table-hover\" id=\"tableSL\"><thead class=\"thead-dark\"><tr><th scope=\"col\"># Period</th><th scope=\"col\">Year</th><th scope=\"col\">Depreciation</th> <th scope=\"col\">Cummulative Depreciation</th><th scope=\"col\">Value in Ledgers</th><th>Tax per year</th></tr>";
+      $domString  ="<table class=\"table table-bordered table-hover\" id=\"tableSL\"><thead class=\"thead-dark\"><tr><th scope=\"col\"># Period</th><th scope=\"col\">Year</th><th scope=\"col\">Depreciation</th> <th scope=\"col\">Cummulative Depreciation</th><th scope=\"col\">Value in Ledgers</th><th>Tax per year</th></tr></thead>";
         $depreciation = ($dPrincipal-$dRescue)/$dPeriodo;
         $domString .="<tr><th>0</th><th>$dYear</th><th>-</th><th>-</th>
         <th>$ $dPrincipal</th><th>-</th></tr>";
@@ -34,7 +34,7 @@ if($dType==2){
           <thead class=\"thead-dark\"><tr><th scope=\"col\"># Period</th><th scope=\"col\">Year</th>
             <th scope=\"col\">Depreciation rate %</th><th scope=\"col\">Depreciation</th> <th scope=\"col\">Cummulative Depreciation</th>
             <th scope=\"col\">Value in Ledgers</th><th>Tax per year</th>
-          </tr>";
+          </tr></thead>";
           $domString .="<tr><th>0</th><th>$dYear</th><th>-</th><th>-</th><th>-</th>
           <th>$ $dPrincipal</th><th>-</th></tr>";
 
