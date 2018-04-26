@@ -6,7 +6,7 @@
 
 		if(vPeriodValue == 0 || null){
 			var domString = '<table class="table table-bordered table-hover" id="tablePP">';
-			domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Infows</th><th scope="col">Outflows</th><th scope="col">Cummulative Cashflow</th></tr></thead>';
+			domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Inflows</th><th scope="col">Outflows</th><th scope="col">Cummulative Cashflow</th></tr></thead>';
 
 			domString = domString + '<tbody>';
 		}else{
@@ -14,7 +14,7 @@
 			//http://garystorey.com/2017/02/27/three-ways-to-create-dom-elements-without-jquery/
 			var eTable = document.createElement('tablePP');
 			var domString = '<table class="table table-bordered table-hover" id="tablePP">';
-			domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Infows</th><th scope="col">Outflows</th><th scope="col">Cummulative Cashflow</th></tr></thead>';
+			domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Inflows</th><th scope="col">Outflows</th><th scope="col">Cummulative Cashflow</th></tr></thead>';
 
 			domString = domString + '<tbody>';
 
