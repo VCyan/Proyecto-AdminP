@@ -79,9 +79,9 @@
 				$display_string .= "<td><input type=\"text\"   class=\"form-control bg-success text-white\" id=\"cummuCfPP".($i+1)."\" name=\"cummCfPP$i\" value=\"$cummuCfPP[$i]\" disabled></td>";
 				$flag = 1;
 				$period = $i+1;
-				$lastNetCash = $cummuCfPP[$i];
-				$lastNegative = $cummuCfPP[$i-1];
-				$exactyear = round($period - 1 + abs($lastNegative)/$lastNetCash, 2);
+				//$lastNetCash = $cummuCfPP[$i];
+				//$lastNegative = $cummuCfPP[$i-1];
+				//$exactyear = round($period - 1 + abs($lastNegative)/$lastNetCash, 2);
 			}
 			elseif($flag == 1){
 				$display_string .= "<td><input type=\"text\"   class=\"form-control text-success\" id=\"cummuCfPP".($i+1)."\" name=\"cummCfPP$i\" value=\"$cummuCfPP[$i]\" disabled></td>";
@@ -93,7 +93,7 @@
 	//$display_string .= "$period, $lastNetCash, $lastNegative</tbody></table>";
 	$display_string .= "</tbody></table>";
 	if($flag==1){
-        $display_string.="<div class=\"alert alert-success font-weight-bold\" role=\"alert\">¡La inversion si es recuperada! <br> El Payback Period exacto es en: $exactyear años.</div>";
+        $display_string.="<div class=\"alert alert-success font-weight-bold\" role=\"alert\">¡La inversion si es recuperada! <br> El Payback Period exacto es en el periodo $period!</div>";
 	}
 	else{
 		$display_string.="<div class=\"alert alert-danger\" role=\"alert\">La inversion no conviene, ¡No se recupera el dinero en el tiempo establecido!</div>";
