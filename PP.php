@@ -63,6 +63,7 @@
 	// Insert a new row in the table for each person returned
 	// while($row = mysql_fetch_array($qry_result))
 	$flag = 0;
+	$period = 0;
 	// Note: We start i = 0, because arrays start at 0.
 	for($i = 0; $i < $vPeriod; $i++){
 		$display_string .= "<tr><th scope=\"row\">".($i+1)."</th>";
@@ -75,6 +76,7 @@
 			elseif($cummuCfPP[$i] >= 0 && $flag == 0){
 				$display_string .= "<td><input type=\"text\"   class=\"form-control bg-success text-white\" id=\"cummuCfPP".($i+1)."\" name=\"cummCfPP$i\" value=\"$cummuCfPP[$i]\" disabled></td>";
 				$flag = 1;
+				$period = $i+1;
 			}
 			elseif($flag == 1){
 				$display_string .= "<td><input type=\"text\"   class=\"form-control text-success\" id=\"cummuCfPP".($i+1)."\" name=\"cummCfPP$i\" value=\"$cummuCfPP[$i]\" disabled></td>";
@@ -86,7 +88,14 @@
 	//echo "Query: " . $query . "<br />";
 
 	$display_string .= "</tbody></table>";
+	if($flag==1){
+        $display_string.="<div class=\"alert alert-success\" role=\"alert\">La inversion si es recuperada a partir del periodo $period!</div>";
 
+	}
+	else{
+
+		$display_string.="<div class=\"alert alert-danger\" role=\"alert\">La inversion no conviene, no se recupera el dinero en el tiempo establecido!</div>";
+	}
 	echo $display_string;
 
 ?>
