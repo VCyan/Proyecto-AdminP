@@ -8,7 +8,7 @@ function generate_TableNPV(vPeriodValue2)
 		if(vPeriodValue2 == 0 || null)
 		{
 			var domString = '<table class="table table-bordered table-hover" id="tableNPV">';
-			domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Inflows</th><th scope="col">Outflows</th><th scope="col">Cummulative Cashflow</th></tr></thead>';
+			domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Inflows</th><th scope="col">Outflows</th><th scope="col">Cashflow per period</th><th scope="col">NPV per period</th></tr></thead>';
 			
 			domString = domString + '<tbody>';
 		}
@@ -18,7 +18,7 @@ function generate_TableNPV(vPeriodValue2)
 			//http://garystorey.com/2017/02/27/three-ways-to-create-dom-elements-without-jquery/
 			var eTable = document.createElement('tableNPV');
 			var domString = '<table class="table table-bordered table-hover" id="tableNPV">';
-			domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Inflows</th><th scope="col">Outflows</th><th scope="col">Cummulative Cashflow</th></tr></thead>';
+			domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Inflows</th><th scope="col">Outflows</th><th scope="col">Cashflow per period</th><th scope="col">NPV per period</th></tr></thead>';
 			
 			domString = domString + '<tbody>'; 
 			
@@ -27,24 +27,32 @@ function generate_TableNPV(vPeriodValue2)
 				domString = domString + '<tr><th scope="row">'+ i +'</th>';
 					domString = domString + '<td><input type="number" class="form-control" id="inflowNPV'+i+'"  name="inflowNPV'+i+'"  onfocus="this.select()" value="0"></td>';
 					domString = domString + '<td><input type="number" class="form-control" id="outflowNPV'+i+'" name="outflowNPV'+i+'" onfocus="this.select()" value="0"></td>';
-					domString = domString + '<td><input type="text"   class="form-control" id="cummuCfNPV'+i+'" name="cummCfNPV'+i+'"placeholder="Disabled input here..." disabled></td>';
+					domString = domString + '<td><input type="text"   class="form-control" id="cummuCfNPV'+i+'" name="cummCfNPV'+i+'" disabled></td>';
+                	domString = domString + '<td><input type="text"   class="form-control" id="NPVPeriod'+i+'" name="NPVPeriod'+i+'" disabled></td>';
 				domString = domString + '</tr>';
 			}
 		}
 			domString = domString + '<tr>';
-			domString = domString + '<td colspan="3"> Net Present Value </td>';
-			domString = domString + '<td><input type="number" class="form-control" id="netPV" name="netPV" placeholder="Disabled input here..." disabled></td>';
+			domString = domString + '<td colspan="4"> Net Present Value </td>';
+			domString = domString + '<td><input type="number" class="form-control" id="netPV" name="netPV" placeholder="Net present value" disabled></td>';
 			domString = domString + '</tr>';
 		
 		domString = domString + '</tbody></table>';
 		
 		document.getElementById("divNPV").innerHTML = domString;
-	}
+        deleteChartNPV();
+    }
 
+	function deleteChartNPV(){
+		// Delete Chart from HTML and recreate a new canvas for a new Chart.
+		$('#chartNPV').remove(); // this is my <canvas> element
+		$('#canvasNPV').append('<canvas id="chartNPV"><canvas>');
+	}
 
 	function validateData2() 
 	{
-		var vPeriod2 	= document.getElementById("vPeriod2").value;
+        deleteChartNPV();
+        var vPeriod2 	= document.getElementById("vPeriod2").value;
 		var vPrincipal2 	= document.getElementById("vPrincipal2").value;
 		var vTasa2 		= document.getElementById("vTasa2").value;
 		var vTasaTax 		= document.getElementById("vTasaTax").value;
@@ -155,7 +163,67 @@ function generate_TableNPV(vPeriodValue2)
 			var queryString = "?vPeriod2=" + vPeriod2 +"&vPrincipal2=" + vPrincipal2 +"&vTasa2=" + vTasa2 +"&vTasaTax=" + vTasaTax +"&vSValue=" + vSValue +"&vPeriodSV=" + vPeriodSV +"&inflowsNPV="+JSONinflowsNPV + "&outflowsNPV="+JSONoutflowsNPV;
 			ajaxRequest.open("GET", "NPV.php" + queryString, true);
 			ajaxRequest.send(null);
-			   
+            createChartNPV(vPeriod2, vPrincipal2, inflowsNPV, outflowsNPV,vSValue,vPeriodSV);
 			//document.getElementById("errorPP").innerHTML = "DAsd";
 		}
 	}
+
+// Function to create table for Payback Period:
+function createChartNPV(vPeriod, vPrincipal, inflowsPP, outflowsPP,svalue,periodsv) {
+    // Transforming data to be presented in table
+    var nPeriod = [];
+    for (var i = 0; i <= vPeriod; i++) {nPeriod.push('Periodo: '+i);}
+    inflowsPP.unshift(0); // Insert 0 inflow at the beginning of Array.
+	inflowsPP[periodsv] = parseInt(inflowsPP[periodsv]) + parseInt(svalue);
+    outflowsPP.unshift(vPrincipal); // Insert PRINCIPAL at the beginning of Array.
+    outflowsPP.forEach( function(item, index, array) {outflowsPP[index] = item * -1 });
+    // Create Table using Chart.js
+    var ctx = document.getElementById('chartNPV').getContext('2d');
+    var myChartNPV = new Chart(ctx, {
+            responsive: true,
+            scaleGridLineColor: 'black',
+            type: 'bar',
+            data: {
+                labels: nPeriod,
+                datasets: [
+                    {
+                        label: 'Inflow',
+                        backgroundColor: '#00E200',//"rgba(75, 192, 192, 0.2)",//"rgba(54, 162, 235, 0.2)",//window.chartColors.red,
+                        borderWidth: 5,
+                        data: inflowsPP,
+                        fill:true
+                    },
+                    {
+                        label: 'Outflow',
+                        backgroundColor: '#FF3333',//"rgba(255, 99, 132, 0.2)",//window.chartColors.blue,
+                        //borderColor: '#1a0000',
+                        borderWidth: 5,
+                        data: outflowsPP,
+                        fill:false
+                    }
+                ]
+            },
+            options: {
+                title: {
+                    display: true,
+                    text: 'Inflows and Outflows'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        stacked: true,
+                        gridLines: {
+                            offsetGridLines: false
+                        }
+                    }],
+                    yAxes: [{
+                        stacked: true
+                    }]
+                }
+            }
+        }
+    );
+}
