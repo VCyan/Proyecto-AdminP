@@ -8,6 +8,10 @@
 
 require('./fpdf/fpdf.php');
 $response = $_POST['q'];
+$user = $_POST["userCL"];
+$title = $_POST["titleCL"];
+if($user==''){$user="Not Specified";}
+if($title==''){$title="Not Specified";}
 $questions = array(
     "(Strategy/alignment) What specific organization strategy does this project align with?",
     "(Driver) What business problem does the project solve?",
@@ -34,9 +38,9 @@ $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial','B',16);
 $pdf->Image("./images/itesm.jpg",null,null,25);
-$pageWidth = $pdf->GetPageWidth()-1;
-$pdf->Cell($pageWidth,10,'Titulo Proyecto',0,1,"C");
-$pdf->Cell($pageWidth,10,'Autor Proyecto',0,1,"C");
+$pageWidth = $pdf->GetPageWidth()-10;
+$pdf->Cell($pageWidth,10,'Titulo del Proyecto: '.$title,0,1,"C");
+$pdf->Cell($pageWidth,10,'Autor del Proyecto: '.$user,0,1,"C");
 $pdf->Cell(40,10,'',0,1,"C");
 $pdf->Cell($pageWidth,10,'Checklist',0,1,"C");
 for($i=0;$i<20;$i++){

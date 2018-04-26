@@ -35,8 +35,8 @@
 		<h1 align="center">Tecnológico de Monterrey</h1>
 		<img src="images/tec.png" height="150" width="150">
 		<img src="images/itesm.jpg" height="150" width="150" align="right"><br><br>
-		<h3 style="font-size:20px" align="right">Nombre/Número de proyecto: <form align="right"> <input type="text"> </form></h3>
-		<h3 style="font-size:20px" align="right">Nombre Evaluador: <form align="right"> <input type="text"> </form></h3>
+		<h3 style="font-size:20px" align="right">Nombre/Número de proyecto: <form align="right"> <input type="text" onchange="document.getElementById('hiddenTitle').value = this.value;"> </form></h3>
+		<h3 style="font-size:20px" align="right">Nombre Evaluador: <form align="right"> <input type="text" onchange="document.getElementById('hiddenUser').value = this.value;"> </form></h3>
 		<h3>Materia: </h3> <h4>Evaluación y administración de proyectos </h4> <br>
 		<h3>Proyecto: </h3> <h4>Portfolio Evaluation Tool</h4><br>
 	<!-- METHOD BAR-->
@@ -364,6 +364,8 @@
 				</tr>
 				</tbody>
 			</table>
+				<input id="hiddenUser" value="" type="hidden" name="userCL">
+				<input id="hiddenTitle" value="" type="hidden" name="titleCL">
 				<input class="btn btn-success" type="Submit" name="Export" value="Export to PDF">
 			</form>
 				<br>
