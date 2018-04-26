@@ -8,7 +8,7 @@ function generate_TableNPV(vPeriodValue2)
 		if(vPeriodValue2 == 0 || null)
 		{
 			var domString = '<table class="table table-bordered table-hover" id="tableNPV">';
-			domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Inflows</th><th scope="col">Outflows</th><th scope="col">Cashflow per period</th></tr></thead>';
+			domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Inflows</th><th scope="col">Outflows</th><th scope="col">Cashflow per period</th><th scope="col">NPV per period</th></tr></thead>';
 			
 			domString = domString + '<tbody>';
 		}
@@ -18,7 +18,7 @@ function generate_TableNPV(vPeriodValue2)
 			//http://garystorey.com/2017/02/27/three-ways-to-create-dom-elements-without-jquery/
 			var eTable = document.createElement('tableNPV');
 			var domString = '<table class="table table-bordered table-hover" id="tableNPV">';
-			domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Inflows</th><th scope="col">Outflows</th><th scope="col">Cashflow per period</th></tr></thead>';
+			domString = domString + '<thead class="thead-dark"><tr><th scope="col"># Period</th><th scope="col">Inflows</th><th scope="col">Outflows</th><th scope="col">Cashflow per period</th><th scope="col">NPV per period</th></tr></thead>';
 			
 			domString = domString + '<tbody>'; 
 			
@@ -27,12 +27,13 @@ function generate_TableNPV(vPeriodValue2)
 				domString = domString + '<tr><th scope="row">'+ i +'</th>';
 					domString = domString + '<td><input type="number" class="form-control" id="inflowNPV'+i+'"  name="inflowNPV'+i+'"  onfocus="this.select()" value="0"></td>';
 					domString = domString + '<td><input type="number" class="form-control" id="outflowNPV'+i+'" name="outflowNPV'+i+'" onfocus="this.select()" value="0"></td>';
-					domString = domString + '<td><input type="text"   class="form-control" id="cummuCfNPV'+i+'" name="cummCfNPV'+i+' disabled></td>';
+					domString = domString + '<td><input type="text"   class="form-control" id="cummuCfNPV'+i+'" name="cummCfNPV'+i+'" disabled></td>';
+                	domString = domString + '<td><input type="text"   class="form-control" id="NPVPeriod'+i+'" name="NPVPeriod'+i+'" disabled></td>';
 				domString = domString + '</tr>';
 			}
 		}
 			domString = domString + '<tr>';
-			domString = domString + '<td colspan="3"> Net Present Value </td>';
+			domString = domString + '<td colspan="4"> Net Present Value </td>';
 			domString = domString + '<td><input type="number" class="form-control" id="netPV" name="netPV" placeholder="Net present value" disabled></td>';
 			domString = domString + '</tr>';
 		
