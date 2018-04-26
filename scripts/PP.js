@@ -51,7 +51,7 @@
 		// alert("vPeriod " + vPeriod);
 		// alert("vPrincipal " + vPrincipal);
 		// alert("vTasa " + vTasa);
-		var domString = '<label for="colFormLabelLg" class="col-sm-10 col-form-label col-form-label-lg">';
+		var domString = '<label for=\"colFormLabelLg\" class=\"col-sm-10 col-form-label col-form-label-lg\">';
 
 		if(isNaN(vPeriod) || vPeriod=="" || vPeriod==null || vPeriod==0){
 			domString = domString + "ERROR: El número de PERIODOS no está definido...<br>";
@@ -71,68 +71,74 @@
 		}
 
 		domString = domString + '</label>';
-		document.getElementById("errorPP").innerHTML = domString;
+		//alert(domString.indexOf("ERROR"));
+		if(domString.indexOf("ERROR") >= 0)
+		{
+			document.getElementById("errorPP").innerHTML = domString;
+		}
+		else
+		{
+			if(!isNaN(vPeriod) && vPeriod!="" && vPeriod!=null && !isNaN(vPrincipal) && vPrincipal!="" && vPrincipal!=null && !isNaN(vTasa) && vTasa!="" && vTasa!=null && vTasa <= 100 && vTasa >= 0){
+				// Call php: PHP and AJAX Example: https://www.tutorialspoint.com/php/php_and_ajax.htm
+				var ajaxRequest;  // The variable that makes Ajax possible!
 
-		if(!isNaN(vPeriod) && vPeriod!="" && vPeriod!=null && !isNaN(vPrincipal) && vPrincipal!="" && vPrincipal!=null && !isNaN(vTasa) && vTasa!="" && vTasa!=null && vTasa <= 100 && vTasa >= 0){
-			// Call php: PHP and AJAX Example: https://www.tutorialspoint.com/php/php_and_ajax.htm
-			var ajaxRequest;  // The variable that makes Ajax possible!
+				try {
+				  // Opera 8.0+, Firefox, Safari
+				  ajaxRequest = new XMLHttpRequest();
+				}catch (e) {
+				  // Internet Explorer Browsers
+				  try {
+					 ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
+				  }catch (e) {
+					 // code for IE6, IE5
+					 try{
+						ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
+					 }catch (e){
+						// Something went wrong
+						alert("Your browser broke!");
+						return false;
+					 }
+				  }
+				}
+				// Create a function that will receive data
+				// sent from the server and will update
+				// div section in the same page.
 
-			try {
-			  // Opera 8.0+, Firefox, Safari
-			  ajaxRequest = new XMLHttpRequest();
-			}catch (e) {
-			  // Internet Explorer Browsers
-			  try {
-				 ajaxRequest = new ActiveXObject("Msxml2.XMLHTTP");
-			  }catch (e) {
-				 // code for IE6, IE5
-				 try{
-					ajaxRequest = new ActiveXObject("Microsoft.XMLHTTP");
-				 }catch (e){
-					// Something went wrong
-					alert("Your browser broke!");
-					return false;
-				 }
-			  }
+				ajaxRequest.onreadystatechange = function(){
+				  if(ajaxRequest.readyState == 4){
+					 var ajaxDisplay = document.getElementById('divPP');
+					 ajaxDisplay.innerHTML = ajaxRequest.responseText;
+				  }
+				}
+
+				// Now get the value from user and pass it to
+				// server script.
+
+				// http://www.kvcodes.com/2015/10/passing-javascript-array-to-php-through-jquery-ajax
+				// Get values from Inflows & Outflows into JQuery Arrays encoded as JSON:
+				var inflowsPP  = [];
+				var outflowsPP = [];
+				for(i=1; i <= vPeriod; i++){
+					var getValue = parseInt(document.getElementById("inflowPP"+i+"").value);
+					inflowsPP.push(getValue);
+					getValue = parseInt(document.getElementById("outflowPP"+i+"").value);
+					outflowsPP.push(getValue);
+				}
+				//var myJSONText = JSON.stringify( arrayfromjs );
+				var JSONinflowsPP 	= JSON.stringify( inflowsPP );
+				var JSONoutflowsPP 	= JSON.stringify( outflowsPP );
+
+				// var age = document.getElementById('age').value;
+				// var wpm = document.getElementById('wpm').value;
+				// var sex = document.getElementById('sex').value;
+
+				var queryString = "?vPeriod=" + vPeriod +"&vPrincipal=" + vPrincipal + "&vTasa=" + vTasa + "&inflowsPP="+JSONinflowsPP + "&outflowsPP="+JSONoutflowsPP;
+				ajaxRequest.open("GET", "PP.php" + queryString, true);
+				ajaxRequest.send(null);
+
+				//document.getElementById("errorPP").innerHTML = "Dasd";
+				createChartPP(vPeriod, vPrincipal, inflowsPP, outflowsPP);
 			}
-			// Create a function that will receive data
-			// sent from the server and will update
-			// div section in the same page.
-
-			ajaxRequest.onreadystatechange = function(){
-			  if(ajaxRequest.readyState == 4){
-				 var ajaxDisplay = document.getElementById('divPP');
-				 ajaxDisplay.innerHTML = ajaxRequest.responseText;
-			  }
-			}
-
-			// Now get the value from user and pass it to
-			// server script.
-
-			// http://www.kvcodes.com/2015/10/passing-javascript-array-to-php-through-jquery-ajax
-			// Get values from Inflows & Outflows into JQuery Arrays encoded as JSON:
-			var inflowsPP  = [];
-			var outflowsPP = [];
-			for(i=1; i <= vPeriod; i++){
-				var getValue = parseInt(document.getElementById("inflowPP"+i+"").value);
-				inflowsPP.push(getValue);
-				getValue = parseInt(document.getElementById("outflowPP"+i+"").value);
-				outflowsPP.push(getValue);
-			}
-			//var myJSONText = JSON.stringify( arrayfromjs );
-			var JSONinflowsPP 	= JSON.stringify( inflowsPP );
-			var JSONoutflowsPP 	= JSON.stringify( outflowsPP );
-
-			// var age = document.getElementById('age').value;
-			// var wpm = document.getElementById('wpm').value;
-			// var sex = document.getElementById('sex').value;
-
-			var queryString = "?vPeriod=" + vPeriod +"&vPrincipal=" + vPrincipal + "&vTasa=" + vTasa + "&inflowsPP="+JSONinflowsPP + "&outflowsPP="+JSONoutflowsPP;
-			ajaxRequest.open("GET", "PP.php" + queryString, true);
-			ajaxRequest.send(null);
-
-			//document.getElementById("errorPP").innerHTML = "Dasd";
-			createChartPP(vPeriod, vPrincipal, inflowsPP, outflowsPP);
 		}
 	}
 	
