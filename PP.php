@@ -57,7 +57,7 @@
 
 	//Build Result String
 	$display_string  = "<table class=\"table table-bordered table-hover\" id=\"tablePP\">";
-	$display_string .= "<thead class=\"thead-dark\"><tr><th scope=\"col\"># Period</th><th scope=\"col\">Infows</th><th scope=\"col\">Outflows</th><th scope=\"col\">Cummulative Cashflow</th></tr></thead>";
+	$display_string .= "<thead class=\"thead-dark\"><tr><th scope=\"col\"># Period</th><th scope=\"col\">Inflows</th><th scope=\"col\">Outflows</th><th scope=\"col\">Cummulative Cashflow</th></tr></thead>";
 	$display_string .= "<tbody>";
 
 	// Insert a new row in the table for each person returned
