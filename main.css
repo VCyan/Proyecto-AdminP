@@ -5,9 +5,8 @@
     border-color: #030033;
 }
 
-.red .active a,
-.red .active a:hover {
-    background-color: red;
+.active a{
+    color: red !important;
 }
 
 /* .encabezado{
