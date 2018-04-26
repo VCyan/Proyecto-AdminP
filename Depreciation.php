@@ -44,6 +44,7 @@ if($dType==2){
               $Mdepreciation[1] = 0.3333;
               $Mdepreciation[2] = 0.4445;
               $Mdepreciation[3] = 0.1481;
+              $Mdepreciation[4]= 0.0714;
           break;
           case 5:
               $Mdepreciation[1] = 0.20;
@@ -51,38 +52,48 @@ if($dType==2){
               $Mdepreciation[3] = 0.192;
               $Mdepreciation[4] = 0.1152;
               $Mdepreciation[5] = 0.1152;
+              $Mdepreciation[6]= 0.0576;
           break;
           case 7:
               $Mdepreciation[1] = 0.1429;
               $Mdepreciation[2] = 0.2449;
               $Mdepreciation[3] = 0.1749;
               $Mdepreciation[4] = 0.1249;
-              $Mdepreciation[5] = 0.893;
-              $Mdepreciation[6] = 0.892;
-              $Mdepreciation[7] = 0.893;
+              $Mdepreciation[5] = 0.0893;
+              $Mdepreciation[6] = 0.0892;
+              $Mdepreciation[7] = 0.0893;
+              $Mdepreciation[8]= 0.0446;
           break;
           case 10:
               $Mdepreciation[1] = 0.1;
               $Mdepreciation[2] = 0.18;
               $Mdepreciation[3] = 0.144;
               $Mdepreciation[4] = 0.1152;
-              $Mdepreciation[5] = 0.922;
-              $Mdepreciation[6] = 0.737;
-              $Mdepreciation[7] = 0.655;
-              $Mdepreciation[8] = 0.655;
-              $Mdepreciation[9] = 0.656;
-              $Mdepreciation[10]= 0.655;
+              $Mdepreciation[5] = 0.0922;
+              $Mdepreciation[6] = 0.0737;
+              $Mdepreciation[7] = 0.0655;
+              $Mdepreciation[8] = 0.0655;
+              $Mdepreciation[9] = 0.0656;
+              $Mdepreciation[10]= 0.0655;
+              $Mdepreciation[11]= 0.0328;
           break;
         }
         $cumDep =0;
 
-        for($i=1; $i<=$dPeriodo; $i++){
+        for($i=1; $i<=$dPeriodo+1; $i++){
             $depreciation = $Mdepreciation[$i]*$dPrincipal;
             $rate = $Mdepreciation[$i]*100;
             $now = $dYear+$i;
             $cumDep += $depreciation;
             $valueinL = $dPrincipal-$cumDep;
             $tpy = $valueinL*$dTax;
+            if($i==($dPeriodo+1)){
+                $cumDep=$dPrincipal;
+                $valueinL=0;
+            }
+            if($tpy<.01){
+                $tpy=0;
+            }
             $domString .="<tr><th>$i</th><th>$now</th><th>$rate</th>
                           <th>$ $depreciation</th><th>$ $cumDep</th><th>$ $valueinL</th><th>$ $tpy</th></tr>";
 
