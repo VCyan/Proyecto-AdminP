@@ -104,8 +104,8 @@
 		// Weighted Table
 			domString += '<tr class="bg-dark text-white">';
 				domString += '<th scope="row" colspan="3" class="p-3"></th>';
-				domString += '<th scope="row" colspan="2" class="p-3 col-form-label-lg bg-danger text-white">Weighted Total:</th>';
-				domString += '<td class="bg-danger text-white"><input type="number" class="form-control col-form-label-lg font-weight-bold" id="'+clave+'WT" name="'+clave+'WT" value="33.33" disabled></td>';
+				domString += '<th scope="row" colspan="2" class="p-3 col-form-label-lg bg-info text-white">Weighted Total:</th>';
+				domString += '<td class="bg-info text-white"><input type="number" class="form-control col-form-label-lg font-weight-bold" id="'+clave+'WT" name="'+clave+'WT" value="33.33" disabled></td>';
 			domString += '</tr>';
 
 		domString += '</tbody></table>';
@@ -137,6 +137,12 @@
 					domString += '<th scope="col" colspan="2" class="col-form-label-lg">Grand Total:</th>';
 					domString += '<td><input type="number" class="form-control form-control-lg" id="Gtotal" value="100" disabled></td>';
 					domString += '<td><input type="number" class="form-control form-control-lg" id="GTotal" value="100" disabled></td>';
+				domString += '</tr>';
+			domString += '</thead>';
+			domString += '<thead class="thead-dark">';
+				domString += '<tr>';
+					domString += '<th scope="col" colspan="3" class="col-form-label-lg">Decision:</th>';
+					domString += '<td><input type="text" class="form-control form-control-lg bg-success text-white font-weight-bold" id="decision" value="Yes" disabled></td>';
 				domString += '</tr>';
 			domString += '</thead>';
 		addPart = addPart + domString;
