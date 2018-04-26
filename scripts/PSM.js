@@ -103,7 +103,7 @@
 			domString += '</tr>';
 		// Weighted Table
 			domString += '<tr class="bg-dark text-white">';
-				domString += '<th scope="row" colspan="3" class="p-3 "></th>';
+				domString += '<th scope="row" colspan="3" class="p-3"></th>';
 				domString += '<th scope="row" colspan="2" class="p-3 col-form-label-lg bg-danger text-white">Weighted Total:</th>';
 				domString += '<td class="bg-danger text-white"><input type="number" class="form-control col-form-label-lg font-weight-bold" id="'+clave+'WT" name="'+clave+'WT" value="33.33" disabled></td>';
 			domString += '</tr>';
